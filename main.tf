@@ -41,11 +41,3 @@ resource "aws_s3_bucket_acl" "s3_bucket" {
 
   acl = "public-read"
 }
-
-resource "aws_s3_object" "webapp" {
-  acl          = "public-read"
-  key          = "index.html"
-  bucket       = aws_s3_bucket.bucket.id
-  content      = file("${path.module}/assets/index.html")
-  content_type = "text/html"
-}
